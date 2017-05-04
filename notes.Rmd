@@ -1,0 +1,24 @@
+---
+title: "Notes"
+author: "Julien Barnier"
+date: "31 mars 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## API
+
+Web of Science light
+
+- Accès sans authentification
+- Données limitées
+- Récupération des données par paquet de 100
+
+Doc technique : http://ipscience-help.thomsonreuters.com/wosWebServicesLite/WebServicesLiteOverviewGroup/Introduction.html
+
+FAQ générale API : http://ip-science.interest.thomsonreuters.com/data-integration
+
+Sample data : http://ip-science.interest.thomsonreuters.com/sample-data/?elqTrackId=4face30b453a4df981d9135a688b4868&elqaid=3746&elqat=2
