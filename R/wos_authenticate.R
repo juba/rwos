@@ -1,7 +1,15 @@
+#' Authenticate to the Web of Science Web Services Lite API
+#'
+#' @param username optional user name
+#' @param password optional password
+#'
+#' @return a session identifier
+#'
 #' @export
+#' @import RCurl
 #' @import xml2
 
-wos_authenticate <- function(username = NULL, password = NULL) {
+wos_authenticate <- function(username = NULL, password = NULL, api = "lite") {
 
   headers <- c(
     Accept = "multipart/*",
@@ -30,6 +38,12 @@ wos_authenticate <- function(username = NULL, password = NULL) {
   )
 
   resp <- xml2::read_xml(h$value())
+
+  err <- xml2::xml_find_first(resp, xpath = ".//faultstring")
+  if (length(err) > 0) {
+    stop("Authentication error : ", xml2::xml_text(err))
+  }
+
   sid <- xml2::xml_text(xml_find_first(resp, "//return"))
 
   sid
