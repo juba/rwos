@@ -1,6 +1,3 @@
-
-#' @export
-
 wos_parse_records <- function(xml) {
 
   xpath <- "//records"
