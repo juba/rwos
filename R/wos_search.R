@@ -53,6 +53,12 @@ wos_search <- function(sid, query = "") {
   )
 
   resp <- xml2::read_xml(h$value())
+
+  err <- xml2::xml_find_first(resp, xpath = ".//faultstring")
+  if (length(err) > 0) {
+    stop("Error : ", xml2::xml_text(err))
+  }
+
   results <- as.numeric(xml_text(xml_find_first(resp, xpath = "//return/recordsFound")))
   query_id <- xml_text(xml_find_first(resp, xpath = "//return/queryId"))
 

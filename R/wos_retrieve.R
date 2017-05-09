@@ -38,6 +38,12 @@ wos_retrieve_page <- function(sid, result, first = NULL, count = 100) {
   )
 
   xml <- xml2::read_xml(h$value())
+
+  err <- xml2::xml_find_first(xml, xpath = ".//faultstring")
+  if (length(err) > 0) {
+    stop("Error : ", xml2::xml_text(err))
+  }
+
   resp <- wos_parse_records(xml)
   resp
 
