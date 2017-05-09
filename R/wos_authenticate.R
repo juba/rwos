@@ -9,7 +9,7 @@
 #' @import RCurl
 #' @import xml2
 
-wos_authenticate <- function(username = NULL, password = NULL, api = "lite") {
+wos_authenticate <- function(username = NULL, password = NULL) {
 
   headers <- c(
     Accept = "multipart/*",
