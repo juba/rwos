@@ -12,9 +12,11 @@
 #' @import xml2
 
 
-wos_search <- function(sid, query = "") {
+wos_search <- function(sid, query = "", api = "lite") {
 
-  body <- paste0('<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  if (api == "lite") {
+
+    body <- paste0('<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
   xmlns:woksearchlite="http://woksearchlite.v3.wokmws.thomsonreuters.com">
     <soapenv:Header/>
     <soapenv:Body>
@@ -30,13 +32,43 @@ wos_search <- function(sid, query = "") {
     </queryParameters>
     <retrieveParameters>
     <firstRecord>1</firstRecord>
-    <count>5</count>
+    <count>100</count>
     </retrieveParameters>
     </woksearchlite:search>
     </soapenv:Body>
     </soapenv:Envelope>')
 
-  url <- "http://search.webofknowledge.com/esti/wokmws/ws/WokSearchLite"
+    url <- "http://search.webofknowledge.com/esti/wokmws/ws/WokSearchLite"
+  }
+
+  if (api == "premium") {
+
+    body <- paste0('<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:woksearchlite="http://woksearch.v3.wokmws.thomsonreuters.com">
+    <soapenv:Header/>
+    <soapenv:Body>
+    <woksearch:search>
+    <queryParameters>
+    <databaseId>WOS</databaseId>
+    <userQuery>', query, '</userQuery>
+    <editions>
+    <collection>WOS</collection>
+    <edition>SCI</edition>
+    </editions>
+    <queryLanguage>en</queryLanguage>
+    </queryParameters>
+    <retrieveParameters>
+    <firstRecord>1</firstRecord>
+    <count>100</count>
+    </retrieveParameters>
+    </woksearch:search>
+    </soapenv:Body>
+    </soapenv:Envelope>')
+
+    url <- "http://search.webofknowledge.com/esti/wokmws/ws/WokSearch"
+  }
+
+
   headers <- c(
     Accept = "multipart/*",
     'Content-Type' = "text/xml; charset=utf-8",
