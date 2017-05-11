@@ -4,7 +4,7 @@
 \alias{wos_retrieve_page}
 \title{Retrieve a batch of records (100 max)}
 \usage{
-wos_retrieve_page(sid, result, first = NULL, count = 100)
+wos_retrieve_page(result, first = NULL, count = 100)
 }
 \description{
 Retrieve a batch of records (100 max)
