@@ -1,5 +1,7 @@
 # R interface with Web of Science Web Services API
 
+**Note :** Only the Lite version of the API is accessible for now.
+
 ## Installation
 
 Not on CRAN, install directly from GitHub :
