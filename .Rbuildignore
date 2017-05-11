@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 examples.R
 notes.Rmd
+^\.travis\.yml$
+^.*~$
