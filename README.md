@@ -16,7 +16,7 @@ devtools::install_github("juba/questionr")
     
 ## Usage
 
-First thing is to authenticate against the service and get a session identifier. No need for a username or password as the Lite API is freely available.
+First, you need to authenticate against the service and get a session identifier. Username and password are not required as the Lite API is freely available.
 
 ```r
 sid <- wos_authenticate()
