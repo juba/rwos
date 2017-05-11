@@ -13,6 +13,9 @@ Imports:
     RCurl, 
     xml2, 
     dplyr
+Suggests:
+    testthat,
+    roxygen2
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
