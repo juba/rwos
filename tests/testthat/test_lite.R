@@ -32,7 +32,7 @@ test_that("retrieve_all result is correct", {
   expect_match(as.character(pubs[1, "authors"]), "Wickham, Hadley")
 })
 
-Sys.sleep(1)
+Sys.sleep(2)
 res <- wos_search(sid, "CU=Latvia")
 
 test_that("retrieve result is correct", {
