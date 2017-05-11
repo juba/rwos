@@ -10,7 +10,7 @@
 Not on CRAN, install directly from GitHub :
 
 ```r
-install.packages("devtools") 
+install.packages("devtools")  # if required
 devtools::install_github("juba/questionr")
 ```
     
@@ -19,6 +19,7 @@ devtools::install_github("juba/questionr")
 First, you need to authenticate against the service and get a session identifier. Username and password are not required as the Lite API is freely available.
 
 ```r
+library(rwos)
 sid <- wos_authenticate()
 ```
   
