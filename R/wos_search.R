@@ -96,7 +96,7 @@ wos_search <- function(sid, query = "", api = "lite") {
 
   cat(paste0(results, " records found"))
 
-  return(list(results = results, id = query_id))
+  return(list(sid = sid, results = results, id = query_id))
 
 }
 
