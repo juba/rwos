@@ -63,7 +63,7 @@ wos_search(sid, 'TS=soil', editions = c("SCI", "IC"))
 
 Queries against other editions will result in a `Not authorized` error message.
 
-### Searching for exact seeral words expressions
+### Searching for exact several words expressions
 
 When searching for text with a keyword like `TS`, you must enclose it into double quotes if you want to look for exact phrases. For example, the following search will look for the exact *soil health* expression :
 
