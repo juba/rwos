@@ -43,13 +43,49 @@ pubs <- wos_retrieve(res, first = 10, count = 15)
 
 The result is a tibble (a data frame) with the different records fields as columns. 
     
-## API
+## API usage
+
+### API version
 
 Only the Lite version of the API is accessible for now, which means :
 
 - Access without authentication
 - Limited set of returned data
 - Records retrieving limited to batches of 100
+
+### Collections
+
+The search collections available with the lite API are SCI, ISTP, ISSHP, IC. You can narrow your search to a subset of those with the `editions` argument :
+
+```r
+wos_search(sid, 'TS=soil', editions = c("SCI", "IC"))
+```
+
+Queries against other editions will result in a `Not authorized` error message.
+
+### Searching for exact seeral words expressions
+
+When searching for text with a keyword like `TS`, you must enclose it into double quotes if you want to look for exact phrases. For example, the following search will look for the exact *soil health* expression :
+
+```r
+wos_search(sid, 'TS="soil health"')
+```
+
+Whereas the following will be equivalent to search for `(soil AND health)` :
+
+```r
+wos_search(sid, "TS='soil health'"")
+```
+
+### Limiting by document type
+
+It seems you can narrow your search by document type with the `DT` operator, like this :
+
+```r
+wos_search(sid, "((TS=(soil AND health)) AND (DT=(Article OR Book OR Book Chapter)))")
+```
+
+This has not been well tested, so use it with caution and don't hesitate to report any issue.
 
 ## Links
 
