@@ -4,7 +4,6 @@
 #' @param query query text
 #' @param api the API type. Only "lite" is supported for now
 #' @param editions search collection editions to query against
-#' @param lang query language
 #'
 #' @return a list with two elements : the number of results, and the generated query id.
 #'
@@ -17,8 +16,7 @@
 
 wos_search <- function(sid, query = "",
                        api = "lite",
-                       editions = if (api == "lite") c("SCI", "ISTP", "ISSHP", "IC"),
-                       lang = "en") {
+                       editions = if (api == "lite") c("SCI", "ISTP", "ISSHP", "IC")) {
 
   if (api == "lite") {
 
@@ -38,7 +36,7 @@ wos_search <- function(sid, query = "",
     <databaseId>WOS</databaseId>
     <userQuery>', query, '</userQuery>',
     editions_str,
-    '<queryLanguage>', lang, '</queryLanguage>
+    '<queryLanguage>en</queryLanguage>
     </queryParameters>
     <retrieveParameters>
     <firstRecord>1</firstRecord>
