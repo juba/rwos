@@ -38,7 +38,14 @@ wos_authenticate <- function(username = NULL, password = NULL, url = "http://sea
     writefunction = h$update
   )
 
-  resp <- xml2::read_xml(h$value())
+  tryCatch(
+    resp <- xml2::read_xml(h$value()),
+    error = function(e) {
+      cat("Response was :\n", h$value())
+      stop(e)
+    }
+  )
+
 
   err <- xml2::xml_find_first(resp, xpath = ".//faultstring")
   if (length(err) > 0) {
