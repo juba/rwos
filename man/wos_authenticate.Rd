@@ -4,12 +4,15 @@
 \alias{wos_authenticate}
 \title{Authenticate to the Web of Science Web Services Lite API}
 \usage{
-wos_authenticate(username = NULL, password = NULL)
+wos_authenticate(username = NULL, password = NULL,
+  url = "http://search.webofknowledge.com")
 }
 \arguments{
 \item{username}{optional user name}
 
 \item{password}{optional password}
+
+\item{url}{url of WoS service (to be used with a proxy)}
 }
 \value{
 a session identifier

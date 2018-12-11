@@ -4,6 +4,7 @@
 #' @param query query text
 #' @param api the API type. Only "lite" is supported for now
 #' @param editions search collection editions to query against
+#' @param url url of WoS service (to be used with a proxy)
 #'
 #' @return a list with two elements : the number of results, and the generated query id.
 #'
@@ -16,7 +17,8 @@
 
 wos_search <- function(sid, query = "",
                        api = "lite",
-                       editions = if (api == "lite") c("SCI", "ISTP", "ISSHP", "IC")) {
+                       editions = if (api == "lite") c("SCI", "ISTP", "ISSHP", "IC"),
+                       url = "http://search.webofknowledge.com") {
 
   if (api == "lite") {
 
@@ -46,7 +48,7 @@ wos_search <- function(sid, query = "",
     </soapenv:Body>
     </soapenv:Envelope>')
 
-    url <- "http://search.webofknowledge.com/esti/wokmws/ws/WokSearchLite"
+    url <- paste0(url, "/esti/wokmws/ws/WokSearchLite")
   }
 
   if (api == "premium") {

@@ -2,6 +2,7 @@
 #'
 #' @param username optional user name
 #' @param password optional password
+#' @param url url of WoS service (to be used with a proxy)
 #'
 #' @return a session identifier
 #'
@@ -9,7 +10,7 @@
 #' @import RCurl
 #' @import xml2
 
-wos_authenticate <- function(username = NULL, password = NULL) {
+wos_authenticate <- function(username = NULL, password = NULL, url = "http://search.webofknowledge.com") {
 
   headers <- c(
     Accept = "multipart/*",
@@ -23,7 +24,7 @@ wos_authenticate <- function(username = NULL, password = NULL) {
                  )
   }
 
-  url <- "http://search.webofknowledge.com/esti/wokmws/ws/WOKMWSAuthenticate"
+  url <- paste0(url, "/esti/wokmws/ws/WOKMWSAuthenticate")
 
 
   body <- '<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://auth.cxf.wokmws.thomsonreuters.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><ns0:Body><ns1:authenticate/></ns0:Body></SOAP-ENV:Envelope>'
