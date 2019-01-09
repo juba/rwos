@@ -1,6 +1,5 @@
 # R interface with Web of Science Web Services API
 
-[![Travis-CI Build Status](https://travis-ci.org/juba/rwos.svg?branch=master)](https://travis-ci.org/juba/rwos)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rwos)](http://cran.r-project.org/package=rwos)
 
 **Note :** Only the Lite version of the API is accessible for now.
