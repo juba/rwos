@@ -2,7 +2,9 @@
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rwos)](http://cran.r-project.org/package=rwos)
 
-**Note :** Only the Lite version of the API is accessible for now.
+**Note :** Only the Lite version of the API is accessible.
+
+**Package status :** I never really used this package, so its development is stalled unfortunately. If someone wants to take it over, feel free to fork this repo ! 
 
 ## Installation
 
