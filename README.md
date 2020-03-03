@@ -1,6 +1,7 @@
 # R interface with Web of Science Web Services API
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rwos)](http://cran.r-project.org/package=rwos)
+![Maintenance](https://img.shields.io/maintenance/no/2019)
 
 **Note :** Only the Lite version of the API is accessible.
 
