@@ -2,9 +2,9 @@ Package: rwos
 Type: Package
 Title: Interface to Web of Science Web Services API
 Version: 0.0.1
-Author: c(person("Julien", "Barnier", email="julien.barnier@ens-lyon.fr",
+Author: c(person("Julien", "Barnier", email="julien.barnier@cnrs.fr",
     role=c("aut","cre")))
-Maintainer: Julien Barnier <julien.barnier@ens-lyon.fr>
+Maintainer: Julien Barnier <julien.barnier@cnrs.fr>
 Description: Provides an interface to the Web of Science Web Services Lite API : authentication, search query, and results records retrieveing and parsing.
 License: GPL (>= 2)
 Depends:
